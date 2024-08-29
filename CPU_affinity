@@ -7,6 +7,8 @@
 void* thread_function(void* arg) {
     cpu_set_t cpuset;
     CPU_ZERO(&cpuset);
+    
+    //adds CPU core 0 to the set, meaning that you are selecting core 0 
     CPU_SET((intptr_t)arg, &cpuset); // Set affinity to the core specified by arg
 
     pthread_t thread = pthread_self();
